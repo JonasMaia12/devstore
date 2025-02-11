@@ -1,8 +1,8 @@
-import { AddToCartButton } from "@/components/add-to-cart-button"
-import { api } from "@/data/api"
-import { Product } from "@/data/types/product"
-import { Metadata } from "next"
-import Image from "next/image"
+import { AddToCartButton } from '@/components/add-to-cart-button'
+import { api } from '@/data/api'
+import { Product } from '@/data/types/product'
+import { Metadata } from 'next'
+import Image from 'next/image'
 
 interface ProductPros {
   params: {
@@ -11,7 +11,7 @@ interface ProductPros {
 }
 
 export async function generateStaticParams() {
-  const response = await api("/products/featured")
+  const response = await api('/products/featured')
   const products: Product[] = await response.json()
 
   return products.map((product) => {
@@ -63,9 +63,9 @@ export default async function ProductPage({ params }: ProductPros) {
 
         <div className="mt-8 flex items-center gap-3">
           <span className="inline-block rounded-full bg-violet-500 px-5 py-2.5 font-semibold">
-            {product.price.toLocaleString("pt-PT", {
-              style: "currency",
-              currency: "EUR",
+            {product.price.toLocaleString('pt-PT', {
+              style: 'currency',
+              currency: 'EUR',
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}
